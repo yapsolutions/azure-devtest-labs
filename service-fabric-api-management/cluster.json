@@ -121,7 +121,7 @@
         "description": "Certificate Thumbprint"
       }
     },
-    "sourceVaultValue": {
+    "sourceVaultResourceId": {
       "type": "string",
       "metadata": {
         "description": "Resource Id of the key vault, is should be in the format of /subscriptions/<Sub ID>/resourceGroups/<Resource group name>/providers/Microsoft.KeyVault/vaults/<vault name>"
@@ -744,7 +744,7 @@
             "secrets": [
               {
                 "sourceVault": {
-                  "id": "[parameters('sourceVaultValue')]"
+                  "id": "[parameters('sourceVaultResourceId')]"
                 },
                 "vaultCertificates": [
                   {
