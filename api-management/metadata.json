@@ -1,0 +1,7 @@
+{
+    "itemDisplayName": "API Management for Service Fabric Cluster",
+    "description": "This template deploys API Management with Service Fabric Cluster",
+    "summary": "Configures API Management with existing Service Fabric Cluster",
+    "githubUsername": "codepic",
+    "dateUpdated": "2018-07-03"
+  }
