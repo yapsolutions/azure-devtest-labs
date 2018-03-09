@@ -58,7 +58,7 @@
             "defaultValue": "policy",
             "type": "string"
         },
-        "inbound_policy":{
+        "inbound_policy": {
             "defaultValue": "<policies>\r\n  <inbound>\r\n    <base />\r\n    <set-backend-service backend-id=\"servicefabric\" sf-service-instance-name=\"fabric:/ApiApplication/WebApiService\" sf-resolve-condition=\"@((int)context.Response.StatusCode != 200)\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
             "type": "string"
         },
@@ -68,7 +68,7 @@
         },
         "apim_service_fabric_product_name": {
             "defaultValue": "service-fabric-api-product",
-            "type": "String"
+            "type": "string"
         },
         "service_fabric_backend_name": {
             "defaultValue": "servicefabric",
@@ -111,7 +111,7 @@
             }
         },
         "networkSecurityGroupVersion": {
-            "defaultValue": "2017-03-01",
+            "defaultValue": "2017-06-01",
             "type": "string",
             "metadata": {
                 "description": "The version of the Network Security Group resource."
@@ -176,7 +176,7 @@
                         "managementEndpoints": [
                             "[parameters('clusterHttpManagementEndpoint')]"
                         ],
-                        "clientCertificateThumbprint": "[parameters('serviceFabricCertificateThumbprint')]",
+                        "clientCertificatethumbprint": "[parameters('serviceFabricCertificateThumbprint')]",
                         "serverCertificateThumbprints": [
                             "[parameters('serviceFabricCertificateThumbprint')]"
                         ],
@@ -271,14 +271,14 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "[parameters('networkSecurityGroupName')]",
-            "apiVersion": "[parameters('networkSecurityGroupVersion')]",
+            "apiVersion": "2017-06-01",
             "location": "[variables('location')]",
             "properties": {
                 "securityRules": [
                     {
                         "name": "Client_communication_to_API_Management",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "80",
                             "sourceAddressPrefix": "Internet",
@@ -291,7 +291,7 @@
                     {
                         "name": "Secure_Client_communication_to_API_Management",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "443",
                             "sourceAddressPrefix": "Internet",
@@ -304,7 +304,7 @@
                     {
                         "name": "Management_endpoint_for_Azure_portal_and_Powershell",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "3443",
                             "sourceAddressPrefix": "Internet",
@@ -317,7 +317,7 @@
                     {
                         "name": "Dependency_on_Redis_Cache",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "6381-6383",
                             "sourceAddressPrefix": "VirtualNetwork",
@@ -330,7 +330,7 @@
                     {
                         "name": "Dependency_on_Azure_Storage_and_Azure_Service_Bus",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "80",
                             "sourceAddressPrefix": "VirtualNetwork",
@@ -343,7 +343,7 @@
                     {
                         "name": "Dependency_on_Azure_SQL",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "1433",
                             "sourceAddressPrefix": "VirtualNetwork",
@@ -356,7 +356,7 @@
                     {
                         "name": "Dependency_on_Azure_SQL_V12",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "11000-11999",
                             "sourceAddressPrefix": "VirtualNetwork",
@@ -369,7 +369,7 @@
                     {
                         "name": "Dependency_on_Azure_SQL_V12_2",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "14000-14999",
                             "sourceAddressPrefix": "VirtualNetwork",
@@ -382,7 +382,7 @@
                     {
                         "name": "Dependency_on_Service_Bus",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "9350-9354",
                             "sourceAddressPrefix": "VirtualNetwork",
@@ -408,7 +408,7 @@
                     {
                         "name": "Dependency_on_Redis_Cache_outbound",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "6381-6383",
                             "sourceAddressPrefix": "VirtualNetwork",
@@ -421,7 +421,7 @@
                     {
                         "name": "Dependency_on_Azure_File_Share_for_GIT",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "445",
                             "sourceAddressPrefix": "VirtualNetwork",
@@ -434,7 +434,7 @@
                     {
                         "name": "Dependency_on_SMTP_Port_For_Sending_Emails",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "25028",
                             "sourceAddressPrefix": "VirtualNetwork",
@@ -447,7 +447,7 @@
                     {
                         "name": "Azure_Infrastructure_Load_Balancer",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
                             "sourceAddressPrefix": "AzureLoadBalancer",
