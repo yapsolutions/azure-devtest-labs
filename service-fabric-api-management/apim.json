@@ -59,7 +59,7 @@
             "type": "string"
         },
         "inbound_policy": {
-            "defaultValue": "<policies>\r\n  <inbound>\r\n    <base />\r\n    <set-backend-service backend-id=\"servicefabric\" sf-service-instance-name=\"fabric:/ApiApplication/WebApiService\" sf-resolve-condition=\"@((int)context.Response.StatusCode != 200)\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+            "defaultValue": "",
             "type": "string"
         },
         "apis_service_fabric_app_name": {
@@ -108,13 +108,6 @@
             "type": "string",
             "metadata": {
                 "description": "The name Network Security Group to deploy the API Management service to. This NSG must be applied to the subnet in the 'subnetName' parameter."
-            }
-        },
-        "networkSecurityGroupVersion": {
-            "defaultValue": "2017-06-01",
-            "type": "string",
-            "metadata": {
-                "description": "The version of the Network Security Group resource."
             }
         }
     },
